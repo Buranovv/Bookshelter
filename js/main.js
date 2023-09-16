@@ -11,13 +11,13 @@ const showResults = getElement(".show-results");
 const token = localStorage.getItem("token");
 
 if (!token) {
-  window.location.replace("../login.html");
+  window.location.replace("../index.html");
 }
 
 logout.addEventListener("click", () => {
   localStorage.clear();
 
-  window.location.replace("../login.html");
+  window.location.replace("../index.html");
 });
 
 fetch(`${API}?q=python&startIndex=0&maxResults=6`)

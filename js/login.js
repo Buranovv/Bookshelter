@@ -29,7 +29,7 @@ form.addEventListener("submit", (evt) => {
       if (data.token) {
         localStorage.setItem("token", data.token);
       }
-      
+
       form.reset();
     });
 });
@@ -37,5 +37,5 @@ form.addEventListener("submit", (evt) => {
 const token = localStorage.getItem("token");
 
 if (token) {
-  window.location.replace("../index.html");
+  window.location.replace("../main.html");
 }
