@@ -1,0 +1,133 @@
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+.top-header {
+  padding: 10px 40px 10px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #fff;
+
+  .logo {
+    cursor: pointer;
+  }
+
+  .search-box {
+    position: relative;
+  }
+  .search-logo {
+    position: absolute;
+    left: 16px;
+    top: 15px;
+  }
+  .search {
+    width: 670px;
+    height: 48px;
+    padding: 0 48px;
+    border-radius: 30px;
+    border: 0px solid #e3e6eb;
+
+    color: rgba(0, 0, 0, 0.6);
+    font-family: Rubik M;
+    font-size: 13px;
+    line-height: normal;
+
+    background-color: #f8fafd;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+  }
+  .search::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.24);
+    font-family: Rubik R;
+    font-size: 13px;
+    line-height: normal;
+  }
+  .mode-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .logout {
+    width: 100px;
+    padding: 10px 23px;
+    border-radius: 4px;
+    border: none;
+
+    color: #fff;
+    font-family: Rubik R;
+    font-size: 16px;
+    line-height: normal;
+
+    background: #0d75ff;
+
+    cursor: pointer;
+    transition: all 0.2s linear;
+  }
+  .logout:hover {
+    background: #005fdc;
+  }
+  .logout:active {
+    background: #0d75ff;
+  }
+  .ligth-mode {
+    cursor: pointer;
+  }
+}
+
+.header-bottom {
+  padding: 10px 40px;
+  border: 0px solid #e3e6eb;
+
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 700px;
+
+  background: #fff;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+
+  position: relative;
+  z-index: 2;
+
+  .show-result {
+    color: #222531;
+    font-family: Rubik M;
+    font-size: 14px;
+    line-height: normal;
+  }
+  .order {
+    width: 175px;
+    border-radius: 4px;
+    border: none;
+    padding: 5px 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    font-family: Rubik M;
+    font-size: 14px;
+    line-height: normal;
+
+    color: #fff;
+
+    background: #a6b0c3;
+
+    transition: all 0.2s linear;
+  }
+
+  .order:hover {
+    background: #919aab;
+  }
+  .order:active {
+    background: #a6b0c3;
+  }
+  .order-rel {
+    display: none;
+    width: 200px;
+  }
+}

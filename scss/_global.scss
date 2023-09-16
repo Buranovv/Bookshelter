@@ -1,0 +1,65 @@
+@font-face {
+  font-family: Inter;
+  src: url(../fonts/Inter-Medium.ttf);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: Rubik m;
+  src: url(../fonts/Rubik-Medium.ttf);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: Rubik R;
+  src: url(../fonts/Rubik-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+///////////////////////////////////////////////////////////////////////////
+//////                         TAGS SCSS                             /////
+/////////////////////////////////////////////////////////////////////////
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+p {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+input,
+select {
+  outline: none;
+}
+li {
+  list-style: none;
+}
+
+main {
+  background: #f8fafd;
+  display: flex;
+  margin-top: 122px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0);
+  transition: all 0.3s linear;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.9);
+}

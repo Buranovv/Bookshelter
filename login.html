@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <link rel="stylesheet" href="./css/login.min.css" />
+  </head>
+  <body>
+    <main>
+      <div class="login-box">
+        <img src="./img/logo-login.svg" alt="" />
+        <form id="formTo">
+          <label class="user-label"
+            ><img src="./img/user.svg" alt="user"
+          /></label>
+          <input
+            type="text"
+            id="userTo"
+            class="inputs username"
+            placeholder="username"
+          />
+          <label class="pass-label"
+            ><img src="./img/password.svg" alt="password"
+          /></label>
+          <input
+            type="password"
+            id="passwordTo"
+            class="inputs password"
+            placeholder="password"
+          />
+          <button type="submit" class="loginTo">Login</button>
+        </form>
+      </div>
+    </main>
+    <script type="module" src="./js/login.js"></script>
+  </body>
+</html>

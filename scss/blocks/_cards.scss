@@ -1,0 +1,106 @@
+.cards-box {
+  width: 75%;
+}
+
+.cards {
+  padding: 40px;
+  height: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  .card {
+    padding: 13px 18px;
+    border-radius: 5px;
+    border: 0px solid #e3e6eb;
+
+    background: #fff;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  }
+  .card-img-box {
+    width: 249px;
+    height: 238px;
+    border-radius: 5px;
+    padding: 18px 24px;
+    margin-bottom: 20px;
+
+    background: #f8fafd;
+  }
+  .card-img-top {
+    width: 201px;
+    height: 203px;
+  }
+  .card-body {
+    padding: 0;
+  }
+  .card-title {
+    margin-bottom: 3px;
+    height: 20px !important;
+
+    color: #000;
+
+    font-family: Rubik M;
+    font-size: 18px;
+    line-height: normal;
+
+    overflow: hidden;
+  }
+  .card-text {
+    color: #757881;
+    height: 20px;
+
+    font-family: Inter;
+    font-size: 13px;
+    line-height: normal;
+
+    overflow: hidden;
+  }
+  .year {
+    margin-bottom: 10px;
+  }
+  .btn-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .bookmark-btn,
+  .more,
+  .read {
+    width: 49%;
+    padding: 10px 24px;
+    border-radius: 4px;
+    border: none;
+
+    font-family: Rubik M;
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  .bookmark-btn {
+    background: #ffd80d;
+    transition: all 0.2s linear;
+  }
+  .bookmark-btn:hover {
+    background: #f7d947;
+  }
+  .bookmark-btn:active {
+    background: #ffd80d;
+  }
+  .more {
+    color: #0d75ff;
+    background: rgba(13, 117, 255, 0.05);
+  }
+  .more:hover {
+    background: rgba(13, 117, 255, 0.08);
+  }
+  .more:active {
+    background: rgba(13, 117, 255, 0.05);
+  }
+  .read {
+    width: 100%;
+  }
+}
