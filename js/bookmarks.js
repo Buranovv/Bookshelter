@@ -29,7 +29,7 @@ function renderBookM(data, parent) {
           <p class="bookc-text writer">${element.volumeInfo.authors}</p>
         </div>
         <div class="bookc-btns">
-          <a href="" class="bookc-read">
+          <a href="${element.volumeInfo.previewLink}" target="_blank" class="bookc-read">
             <img src="./img/read-book.svg" data-id=${element.id} alt="read button" />
           </a>
           <img class="delete" data-id=${element.id} src="./img/delete.svg" alt="delete button" />
