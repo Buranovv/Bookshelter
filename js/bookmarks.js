@@ -1,4 +1,5 @@
-import { getElement } from "./helpers.js";
+import { getElement, renderFn } from "./helpers.js";
+import { elCards } from "./main.js";
 
 const bookmarksTemplate = getElement("#bookmarks-template");
 const bookmarksCards = getElement(".bookmarks__cards");
@@ -46,9 +47,9 @@ export function bookmarkFn(url, input, order, parent) {
       loader.style.display = "inline-block";
 
       fetch(
-        `${url}?q=${
-          input.value ? input.value : "python"
-        }&orderBy=newest&startIndex=0&maxResults=6`
+        `${url}?q=${input.value ? input.value : "python"}&orderBy=${
+          order == newest ? "newest" : "relevance"
+        }&startIndex=0&maxResults=6`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -59,6 +60,16 @@ export function bookmarkFn(url, input, order, parent) {
           data.items.forEach((element) => {
             if (id == element.id) {
               newArray.push(element);
+
+              newArray.forEach((elem) => {
+                if (elem.id == data.items.id) {
+                  evt.target.disabled = true;
+
+                  renderFn(data, elCards);
+                } else {
+                  evt.target.disabled = false;
+                }
+              });
             }
           });
           renderBookM(newArray, bookmarksCards);

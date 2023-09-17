@@ -5,7 +5,6 @@ const password = getElement("#passwordTo");
 const submit = getElement(".loginTo");
 const form = getElement("#formTo");
 
-// let isLogin = localStorage.getItem("token") ? true : false;
 form.addEventListener("submit", (evt) => {
   evt.preventDefault();
 
@@ -13,8 +12,6 @@ form.addEventListener("submit", (evt) => {
     email: email.value,
     password: password.value,
   };
-
-  // console.log(log);
 
   fetch("https://reqres.in/api/login", {
     method: "POST",
@@ -29,13 +26,12 @@ form.addEventListener("submit", (evt) => {
       if (data.token) {
         localStorage.setItem("token", data.token);
       }
+      const token = localStorage.getItem("token");
+
+      if (token) {
+        window.location.replace("../main.html");
+      }
 
       form.reset();
     });
 });
-
-const token = localStorage.getItem("token");
-
-if (token) {
-  window.location.replace("../main.html");
-}

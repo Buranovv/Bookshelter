@@ -3,7 +3,7 @@ import { getElement, renderFn } from "./helpers.js";
 import { search, searchInp } from "./search.js";
 import { sortBtnNew, sortFn } from "./sort.js";
 
-const elCards = getElement(".cards");
+export const elCards = getElement(".cards");
 const logout = getElement(".logout");
 const API = "https://www.googleapis.com/books/v1/volumes";
 const showResults = getElement(".show-results");
