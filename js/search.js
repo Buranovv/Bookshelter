@@ -7,7 +7,11 @@ export function search(url, showResult, parent) {
   elForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
 
-    fetch(`${url}?q=${searchInp.value}&startIndex=0&maxResults=6`)
+    fetch(
+      `${url}?q=${
+        searchInp.value ? searchInp.value : "python"
+      }&startIndex=0&maxResults=6`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data.items);
