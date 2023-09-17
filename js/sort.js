@@ -1,7 +1,7 @@
 import { getElement, renderFn } from "./helpers.js";
 
 export const sortBtnNew = getElement(".order-new");
-const sortBtnRel = getElement(".order-rel");
+export const sortBtnRel = getElement(".order-rel");
 
 export function sortFn(url, showResult, input, parent) {
   sortBtnNew.addEventListener("click", () => {

@@ -1,7 +1,5 @@
-import { getElement, renderFn } from "./helpers.js";
-import { elCards } from "./main.js";
+import { getElement } from "./helpers.js";
 
-const bookmarksTemplate = getElement("#bookmarks-template");
 const bookmarksCards = getElement(".bookmarks__cards");
 const modalTitle = getElement(".modal-title");
 const modalImg = getElement(".modal-img");
@@ -14,64 +12,73 @@ const modalCategories = getElement(".categories");
 const modalPageCount = getElement(".pageCount");
 const readMe = getElement(".modal-read");
 const loader = getElement("#loader");
-let newArray = [];
+const bookmarkBtnF = getElement("#fff");
+
+export let newArray = [];
 
 function renderBookM(data, parent) {
   parent.innerHTML = null;
   const fragment = document.createDocumentFragment();
 
   data.forEach((element) => {
-    const newCard = bookmarksTemplate.content.cloneNode(true);
-    const title = getElement(".bookc-title", newCard);
-    const writer = getElement(".writer", newCard);
-    const read = getElement(".bookc-read", newCard);
-    const dBtn = getElement(".delete", newCard);
+    const newCard = document.createElement("div");
+    newCard.className = "bookmarks__card";
+    newCard.innerHTML = `
+    <div class="bookc-content">
+          <h5 class="bookc-title">${element.volumeInfo.title}</h5>
+          <p class="bookc-text writer">${element.volumeInfo.authors}</p>
+        </div>
+        <div class="bookc-btns">
+          <a href="" class="bookc-read">
+            <img src="./img/read-book.svg" data-id=${element.id} alt="read button" />
+          </a>
+          <img class="delete" data-id=${element.id} src="./img/delete.svg" alt="delete button" />
+        </div>
+    `;
+    // const newCard = bookmarksTemplate.content.cloneNode(true);
+    // const title = getElement(".bookc-title", newCard);
+    // const writer = getElement(".writer", newCard);
+    // const read = getElement(".bookc-read", newCard);
+    // const dBtn = getElement(".delete", newCard);
 
-    dBtn.dataset.id = element.id;
-    title.textContent = element.volumeInfo.title;
-    writer.textContent = element.volumeInfo.authors;
-    if (read) {
-      read.href = element.volumeInfo.previewLink;
-      read.target = "_blank";
-    }
+    // dBtn.dataset.id = element.id;
+    // title.textContent = element.volumeInfo.title;
+    // writer.textContent = element.volumeInfo.authors;
+    // if (read) {
+    //   read.href = element.volumeInfo.previewLink;
+    //   read.target = "_blank";
+    // }
 
-    fragment.appendChild(newCard);
+    // fragment.appendChild(newCard);
+    parent.appendChild(newCard);
   });
-  parent.appendChild(fragment);
 }
 
-export function bookmarkFn(url, input, order, parent) {
+export function bookmarkFn(url, input, parent) {
   parent.addEventListener("click", (evt) => {
-    // parent.innerHTML = null;
     if (evt.target.className.includes("bookmark-btn")) {
       loader.style.display = "inline-block";
 
+      evt.target.style.display = "none";
+
       fetch(
-        `${url}?q=${input.value ? input.value : "python"}&orderBy=${
-          order == newest ? "newest" : "relevance"
-        }&startIndex=0&maxResults=6`
+        `${url}?q=${
+          input.value ? input.value : "python"
+        }&orderBy=relevance&startIndex=0&maxResults=6`
       )
         .then((res) => res.json())
         .then((data) => {
           loader.style.display = "none";
 
-          //   console.log(data.items);
           const id = evt.target.dataset.id;
           data.items.forEach((element) => {
             if (id == element.id) {
+              const evtt = evt.target;
+
               newArray.push(element);
-
-              newArray.forEach((elem) => {
-                if (elem.id == data.items.id) {
-                  evt.target.disabled = true;
-
-                  renderFn(data, elCards);
-                } else {
-                  evt.target.disabled = false;
-                }
-              });
             }
           });
+          console.log(evt.target);
           renderBookM(newArray, bookmarksCards);
         });
     }
@@ -80,7 +87,7 @@ export function bookmarkFn(url, input, order, parent) {
       fetch(
         `${url}?q=${
           input.value ? input.value : "python"
-        }&orderBy=newest&startIndex=0&maxResults=6`
+        }&orderBy=relevance&startIndex=0&maxResults=6`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -112,11 +119,13 @@ export function bookmarkFn(url, input, order, parent) {
 bookmarksCards.addEventListener("click", (evt) => {
   bookmarksCards.innerHTML = "";
   if (evt.target.className.includes("delete")) {
-    const id = evt.target.dataset.id;
+    const idBM = evt.target.dataset.id;
+
     const dArray = [];
-    console.log(id);
     newArray.forEach((element) => {
-      if (id != element.id) {
+      if (idBM != element.id) {
+        const btt = getElement(".delete");
+        btt.style.display = "block";
         dArray.push(element);
       }
     });

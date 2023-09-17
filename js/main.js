@@ -1,7 +1,7 @@
 import { bookmarkFn } from "./bookmarks.js";
 import { getElement, renderFn } from "./helpers.js";
 import { search, searchInp } from "./search.js";
-import { sortBtnNew, sortFn } from "./sort.js";
+import { sortFn } from "./sort.js";
 
 export const elCards = getElement(".cards");
 const logout = getElement(".logout");
@@ -26,11 +26,13 @@ fetch(`${API}?q=python&startIndex=0&maxResults=6`)
     showResults.textContent = `Showing ${data.totalItems} Result(s)`;
     console.log(data);
     // console.log(data.items.id);
+
+    bookmarkFn(API, searchInp, elCards);
+
+    search(API, showResults, elCards);
+
+    sortFn(API, showResults, searchInp, elCards);
+
     renderFn(data.items, elCards);
-
-    bookmarkFn(API, searchInp, sortBtnNew, elCards);
+    // console.log(isHitChecker);
   });
-
-search(API, showResults, elCards);
-
-sortFn(API, showResults, searchInp, elCards);
