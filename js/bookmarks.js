@@ -35,21 +35,6 @@ function renderBookM(data, parent) {
           <img class="delete" data-id=${element.id} src="./img/delete.svg" alt="delete button" />
         </div>
     `;
-    // const newCard = bookmarksTemplate.content.cloneNode(true);
-    // const title = getElement(".bookc-title", newCard);
-    // const writer = getElement(".writer", newCard);
-    // const read = getElement(".bookc-read", newCard);
-    // const dBtn = getElement(".delete", newCard);
-
-    // dBtn.dataset.id = element.id;
-    // title.textContent = element.volumeInfo.title;
-    // writer.textContent = element.volumeInfo.authors;
-    // if (read) {
-    //   read.href = element.volumeInfo.previewLink;
-    //   read.target = "_blank";
-    // }
-
-    // fragment.appendChild(newCard);
     parent.appendChild(newCard);
   });
 }

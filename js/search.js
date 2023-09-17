@@ -19,6 +19,5 @@ export function search(url, showResult, parent) {
 
         renderFn(data.items, parent);
       });
-    // elForm.reset();
   });
 }

@@ -25,14 +25,8 @@ fetch(`${API}?q=python&startIndex=0&maxResults=6`)
   .then((data) => {
     showResults.textContent = `Showing ${data.totalItems} Result(s)`;
     console.log(data);
-    // console.log(data.items.id);
-
     bookmarkFn(API, searchInp, elCards);
-
     search(API, showResults, elCards);
-
     sortFn(API, showResults, searchInp, elCards);
-
     renderFn(data.items, elCards);
-    // console.log(isHitChecker);
   });
