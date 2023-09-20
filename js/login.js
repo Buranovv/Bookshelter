@@ -5,6 +5,12 @@ const password = getElement("#passwordTo");
 const submit = getElement(".loginTo");
 const form = getElement("#formTo");
 
+const token = localStorage.getItem("token");
+
+if (token) {
+  window.location.replace("../main.html");
+}
+
 form.addEventListener("submit", (evt) => {
   evt.preventDefault();
 
