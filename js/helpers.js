@@ -14,7 +14,7 @@ export function renderFn(data, parent) {
     newCard.style.width = "18rem";
     newCard.innerHTML = `
 <div class="card-img-box">
-<img class="card-img-top" id="card-img" src=${element.volumeInfo.imageLinks.thumbnail} alt="" />
+<img class="card-img-top" id="card-img" src=${element.volumeInfo.imageLinks.smallThumbnail} alt="" />
 </div>
 <div class="card-body">
 <h5 class="card-title">${element.volumeInfo.title}</h5>

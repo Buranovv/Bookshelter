@@ -11,7 +11,7 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  background-color: #fff;
+  background-color: var(--main-bg);
 
   .logo {
     cursor: pointer;

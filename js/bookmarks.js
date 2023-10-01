@@ -63,7 +63,6 @@ export function bookmarkFn(url, input, parent) {
               newArray.push(element);
             }
           });
-          console.log(evt.target);
           renderBookM(newArray, bookmarksCards);
         });
     }
